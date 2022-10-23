@@ -1,0 +1,1 @@
+COPY games FROM 'C:/Users/batte/programming/chess/data/games.csv' (HEADER, DATEFORMAT '%Y.%m.%d')
