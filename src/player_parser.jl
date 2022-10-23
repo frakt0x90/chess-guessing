@@ -2,6 +2,7 @@ using EzXML
 using Base
 using DataFrames
 using Dates
+using CSV
 
 Base.parse(x, y::Missing) = missing
 convert_empty(val::String, replacement=missing) = val == "" ? replacement : val

@@ -38,7 +38,9 @@ Multinom = @load MultinomialClassifier pkg=MLJLinearModels
 mdl = Multinom()
 mcmach = machine(mdl, Xtrain, ytrain)
 fit!(mcmach)
-ypred = predict(mach, Xtest)
+ypred = predict(mcmach, Xtest)
+flat_pred = predict_mode(mcmach, Xtest)
 params = fitted_params(mcmach)
 params.coefs # coefficients of the regression
-MLJ.confusion_matrix(ypred, ytest)
+accuracy = sum(flat_pred .== ytest)/length(ytest)
+MLJ.confusion_matrix(flat_pred, ytest)
